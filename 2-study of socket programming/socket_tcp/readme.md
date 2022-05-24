@@ -22,6 +22,8 @@ Step 07: End the program.
 # code
 ## client
 ```java
+package dcn_lab;
+
 import java.util.*;
 import java.io.*;
 import java.net.*;
@@ -34,16 +36,16 @@ public class client
         {
             System.out.println("Enter quit to terminate the connection !!!");
             Socket s=new Socket("localhost",4444);
-            BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-            BufferedReader out=new BufferedReader(new InputStreamReader(s.getInputStream()));
+            Scanner in=new Scanner(System.in);
+            Scanner out=new Scanner(s.getInputStream());
             PrintWriter pw=new PrintWriter(s.getOutputStream(),true);
             System.out.println("Client running !!!");
             String msg="";
             while(true)
             {
-                    msg=in.readLine();
+                    msg=in.nextLine();
                     pw.println(msg);
-                    msg=out.readLine();
+                    msg=out.nextLine();
                     if(msg.equals("quit"))
                     {
                             break;
@@ -60,11 +62,10 @@ public class client
 
     }
 }
+
 ```
 # server 
 ```java
-package dcn_lab;
-
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -78,12 +79,12 @@ public class Server_Using_TCP
         System.out.println("Server is Running !!!");
         ServerSocket s1=new ServerSocket(4444);
         Socket s=s1.accept();
-        BufferedReader out=new BufferedReader(new InputStreamReader(s.getInputStream()));
+        Scanner out=new Scanner(s.getInputStream());
         PrintWriter pw=new PrintWriter(s.getOutputStream(),true);
         String msg=""; 
         while(true)
         {
-                msg=out.readLine();
+                msg=out.nextLine();
                 System.out.println("from client:"+msg);
                 if(msg.equals("quit"))
                 {
