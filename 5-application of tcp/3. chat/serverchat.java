@@ -1,23 +1,25 @@
 import java.io.*;
-import java.net.*;
+import java.net.*; 
 class serverchat {
     public static void main(String ss[]) throws Exception {
         try {
             System.out.println("Server is Running !!!");
             ServerSocket s1 = new ServerSocket(4444);
             Socket s = s1.accept();
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            BufferedReader out = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            // BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            // BufferedReader out = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            Scanner in=new Scanner(System.in);
+            Scanner out=new Scanner(s.getInputStream());
             PrintWriter pw = new PrintWriter(s.getOutputStream(), true);
             System.out.println("Server running !!!");
             String msg = "";
             while (true) {
-                msg = out.readLine();
+                msg = out.nextLine();
                 System.out.println("from client:" + msg);
                 if (msg.equals("quit")) {
                     break;
                 }
-                msg = in .readLine();
+                msg = in .nextLine();
                 if (msg.equals("quit")) {
                     break;
                 }

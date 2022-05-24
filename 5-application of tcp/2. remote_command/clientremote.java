@@ -6,9 +6,9 @@ public class clientremote {
             Socket s = new Socket("localhost", 8081);
             PrintWriter out = new PrintWriter(s.getOutputStream(), true);
             String cmd;
-            DataInputStream in = new DataInputStream(System.in);
+            Scanner in = new Scanner(System.in);
             System.out.println("Enter the command to execute on server : ");
-            cmd = in .readLine();
+            cmd = in.nextLine();
             out.println(cmd);
         } catch (Exception e) {
             System.out.println(e);

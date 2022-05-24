@@ -6,8 +6,8 @@ public class servertcp {
         ServerSocket ss = new ServerSocket(8081);
         Socket cs = ss.accept();
         PrintWriter put = new PrintWriter(cs.getOutputStream(), true);
-        BufferedReader st = new BufferedReader(new InputStreamReader(cs.getInputStream()));
-        String s = st.readLine();
+        Scanner st=new Scanner(cs.getInputStream());
+        String s = st.nextLine();
         System.out.println("The requested file is : " + s);
         File f = new File(s);
         if (f.exists()) {
