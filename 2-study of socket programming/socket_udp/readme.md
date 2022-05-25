@@ -19,7 +19,7 @@ Step 06: Repeat the same until the user wants to quit.
 Step 07: End the program.  
 
 # program
-## client
+## SERVER
 ```java
 import java.net.*;
 import java.util.Scanner;
@@ -57,7 +57,7 @@ public class serverudp
     }   
 }
 ```
-## server
+## client
 ```java
 import java.net.*;
 import java.io.*;
