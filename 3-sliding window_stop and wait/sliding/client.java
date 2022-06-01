@@ -30,7 +30,7 @@ public class client {
                 }
                 System.out.println();
                 list[n]=din.read();
-                System.out.println("Recieved Frame is " + list.get(n));
+                System.out.println("Recieved Frame is " + list[n]);
                 System.out.println("Ending....!!!!");
             }
     }
