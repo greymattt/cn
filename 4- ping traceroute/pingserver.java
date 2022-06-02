@@ -9,12 +9,10 @@ class server {
         while(true)
         {
             Socket c = s.accept();
-            InputStream in = c.getInputStream();
-            InputStreamReader inr = new InputStreamReader(in);
-            BufferedReader br = new BufferedReader(inr);
-            String str = br.readLine();
+            Scanner br=new Scanner(c.getInputStream());
+            String str = br.nextLine();
             System.out.println("Ping command received from : "+c.getInetAddress() +" with string "+str);
-            PrintStream ps = new PrintStream(c.getOutputStream());
+            PrintWriter ps = new PrintWriter(c.getOutputStream(),true);
             ps.println(str);
         }
     }

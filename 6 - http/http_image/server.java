@@ -24,7 +24,7 @@ class hserver {
 
         InputStream ian = new ByteArrayInputStream(data);
         BufferedImage bImage = ImageIO.read(ian);
-
+ 
         JFrame f = new JFrame("Server");
         ImageIcon icon = new ImageIcon(bImage);
         JLabel l = new JLabel();

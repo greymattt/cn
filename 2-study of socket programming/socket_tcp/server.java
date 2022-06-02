@@ -10,24 +10,24 @@ public class Server_Using_TCP
     {
         try
         {
-        System.out.println("Server is Running !!!");
-        ServerSocket s1=new ServerSocket(4444);
-        Socket s=s1.accept();
-        Scanner out=new Scanner(s.getInputStream());
-        PrintWriter pw=new PrintWriter(s.getOutputStream(),true);
-        String msg=""; 
-        while(true)
-        {
-                msg=out.nextLine();
-                System.out.println("from client:"+msg);
-                if(msg.equals("quit"))
+                System.out.println("Server is Running !!!");
+                ServerSocket s1=new ServerSocket(4444);
+                Socket s=s1.accept();
+                Scanner out=new Scanner(s.getInputStream());
+                PrintWriter pw=new PrintWriter(s.getOutputStream(),true);
+                String msg=""; 
+                while(true)
                 {
-                        break;
+                        msg=out.nextLine();
+                        System.out.println("from client:"+msg);
+                        if(msg.equals("quit"))
+                        {
+                                break;
+                        }
+                        pw.println(msg);
                 }
+                System.out.println("connection terminated !!!");
                 pw.println(msg);
-        }
-        System.out.println("connection terminated !!!");
-        pw.println(msg);
         }
         catch(Exception e)
         {

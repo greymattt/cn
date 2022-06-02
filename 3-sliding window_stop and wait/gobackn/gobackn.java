@@ -1,20 +1,27 @@
 import java.io.*;
+import java.util.Scanner;
 public class gobackn {
-    static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
     public static void main(String[] args) throws Exception {
-        System.out.println("Window Size");
-        int window = Integer.parseInt(br.readLine());
-        int start = 0;
-        do {
-            for (int i = start; i < window; i++)
+        try{
+            System.out.println("Window Size");
+            Scanner sc=new Scanner(System.in);
+            int window =sc.nextInt();
+            int start = 0;
+            while(true){
+                for (int i = start; i < window; i++)
                 System.out.println("Frame " + i + " has been Transmitted");
-            System.out.println("Enter the last Acknowledgement Recieved");
-            int akg = Integer.parseInt(br.readLine());
-            if (akg == window) {
-                System.out.println("All " + window + " Frame has been Transmitted");
-                break;
+                System.out.println("Enter the last Acknowledgement Recieved");
+                int akg = sc.nextInt();
+                if (akg == window) {
+                    System.out.println("All " + window + " Frame has been Transmitted");
+                    break;
+                }
+                start = akg;
             }
-            start = akg;
-        } while (true);
+        }
+        catch(Exception e){
+            System.out.println(" I have error "+e);
+        }
     }
 }

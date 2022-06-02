@@ -22,17 +22,16 @@ public class clienthttp{
         
         System.out.println("Sending image to server. ");
 
-        OutputStream out = soc.getOutputStream();
-        DataOutputStream dos = new DataOutputStream(out);
+        PrintWriter pw=new PrintWriter(soc.getOutputStream());
 
-        dos.writeInt(bytes.length);
-        dos.write(bytes, 0, bytes.length);
+        pw.writeInt(bytes.length);
+
+        pw.write(bytes, 0, bytes.length);
 
         System.out.println("Image sent to server. ");
 
-        dos.close();
+        pw.close();
         baos.close();
-        out.close();
         soc.close();
     }
 }

@@ -11,7 +11,7 @@ Step 8: End main function
 Step 9: Stop program    
 ## client 
 
- Step 1: Start the program   
+Step 1: Start the program   
 Step 2: Import required classes such as BufferReader, InputStreamReader.  
 Step 3: Begin main function    
 Step 4: Connect to server using address and port  

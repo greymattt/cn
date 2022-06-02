@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 import java.lang.*;
  
  
@@ -31,18 +32,18 @@ class server implements Runnable {
     }
     public void run() {
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            BufferedReader out = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            Scanner in=new Scanner(System.in);
+            Scanner out = new Scanner(s.getInputStream());
             PrintWriter pw = new PrintWriter(s.getOutputStream(), true);
             System.out.println("Server running !!!");
             String msg = "";
             while (true) {
-                msg = out.readLine();
+                msg = in.nextLine();
                 System.out.println("from client:" + msg);
                 if (msg.equals("quit")) {
                     break;
                 }
-                msg = in .readLine();
+                msg = out .nextLine();
                 if (msg.equals("quit")) {
                     break;
                 }

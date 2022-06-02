@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 public class client {
     public static void main(String args[]) throws IOException
     {  
@@ -8,19 +9,17 @@ public class client {
         {
             try{
             Socket soc = new Socket("localhost",2000);
-            InputStreamReader isr = new InputStreamReader(System.in);
-            BufferedReader br = new BufferedReader(isr);
+            
+            Scanner br=new Scanner(System.in);
             System.out.println("Type a string to ping : ");
-            String str = br.readLine();
-            OutputStream os = soc.getOutputStream();
-            PrintWriter pw = new PrintWriter(os,true);
-            InputStream in = soc.getInputStream();
-            InputStreamReader inr = new InputStreamReader(in);
-            BufferedReader br1 = new BufferedReader(inr);
+            String str = br.nextLine();
+            
+            PrintWriter pw = new PrintWriter(soc.getOutputStream(),true);
+            Scanner br1=new Scanner(soc.getInputStream());
             t1 = System.currentTimeMillis();
             pw.println(str);
             
-            String str1 = br1.readLine();
+            String str1 = br1.nextLine();
             t2 = System.currentTimeMillis();
             System.out.println("Pinging "+soc.getInetAddress()+" with string "+str );
             System.out.println("Reply from "+soc.getInetAddress() +" String "+str1+" Length : "+str1.length());
