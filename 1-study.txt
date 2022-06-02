@@ -1,0 +1,18 @@
+System commands
+1. Ping
+2. Ipconfig
+3. Netstat
+4. Netuser
+5. Nslookup
+6. Tasklist
+7. Driverquery
+8. Tracert
+
+Network Admin commands
+1. ARP
+2. Hostname
+3. Route
+4. Netdiag
+5. Getmac
+6. Nbtstat
+7. Taskkill
